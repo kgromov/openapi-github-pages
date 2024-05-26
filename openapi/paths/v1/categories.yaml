@@ -1,0 +1,17 @@
+get:
+  tags:
+    -  Category
+  summary: Get list of Categories
+  description: Get list of Categories
+  operationId: getCategories
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref:  '../../components/schemas/v1/Categories.yaml'
+    '400':
+      $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+      $ref: '../../components/responses/not_found_404.yaml'

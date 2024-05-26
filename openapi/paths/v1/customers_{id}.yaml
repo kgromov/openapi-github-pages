@@ -1,0 +1,87 @@
+get:
+  tags:
+    - Customer
+  summary: Get customer by id
+  description:  |
+    Get customer by id
+  operationId: getCustomerById
+  parameters:
+    - $ref: '../../components/parameters/uuid_id.yaml'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/v1/Customer.yaml'
+    '400':
+       $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+      $ref: '../../components/responses/not_found_404.yaml'
+put:
+  tags:
+    - Customer
+  summary: Update customer
+  description: Update customer
+  operationId: updateCustomer
+  parameters:
+    - $ref: '../../components/parameters/uuid_id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/v1/Customer.yaml'
+  responses:
+    '200':
+      description: Customer updated
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/v1/Customer.yaml'
+    '400':
+       $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+     $ref: '../../components/responses/not_found_404.yaml'
+patch:
+  tags:
+    - Customer
+  summary: Patch customer
+  description: Patch customer
+  operationId: patchCustomer
+  parameters:
+    - $ref: '../../components/parameters/uuid_id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/v1/customer_patch.yaml'
+  responses:
+    '200':
+      description: Customer patched
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/v1/Customer.yaml'
+    '400':
+      $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+      $ref: '../../components/responses/not_found_404.yaml'
+delete:
+  tags:
+    - Customer
+  summary: Delete customer by id
+  description: Delete customer by id
+  operationId: deleteCustomer
+  parameters:
+    - $ref: '../../components/parameters/uuid_id.yaml'
+  responses:
+    '204':
+      description: No content
+    '400':
+       $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+     $ref: '../../components/responses/not_found_404.yaml'
+    '409':
+      $ref: '../../components/responses/conflict_409.yaml'

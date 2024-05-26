@@ -1,0 +1,40 @@
+get:
+  tags:
+    - Product
+  summary: Get list of products
+  description: Get list of products (ordered by name)
+  operationId: getProducts
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/v1/Products.yaml'
+    '400':
+       $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+      $ref: '../../components/responses/not_found_404.yaml'
+post:
+  tags:
+    - Product
+  summary: Create new product
+  description: Create new product
+  operationId: createProduct
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/v1/product_create.yaml'
+  responses:
+    '201':
+      description: Created
+      headers:
+        Location:
+          description: The location of the new product
+          schema:
+            type: string
+            format: uri
+            example: '/v1/products/27ca5995-f6e1-46bb-8f18-52458b7ed96e'
+    '400':
+       $ref: '../../components/responses/bad_request_400.yaml'

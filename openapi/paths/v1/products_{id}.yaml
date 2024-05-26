@@ -1,0 +1,86 @@
+get:
+  tags:
+    - Product
+  summary: Get product by id
+  description: Get product by id
+  operationId: getProductById
+  parameters:
+    - $ref: '../../components/parameters/uuid_id.yaml'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/v1/Product.yaml'
+    '400':
+       $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+     $ref: '../../components/responses/not_found_404.yaml'
+put:
+  tags:
+    -  Product
+  summary: Update a product by ID
+  description: Update a product by ID
+  operationId: updateProduct
+  parameters:
+    - $ref: '../../components/parameters/uuid_id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/v1/product_update.yaml'
+  responses:
+    '200':
+      description: Product updated
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/v1/Product.yaml'
+    '400':
+       $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+      $ref: '../../components/responses/not_found_404.yaml'
+patch:
+  tags:
+    -  Product
+  summary: Patch a product by ID
+  description: Patch a product by ID
+  operationId: patchProduct
+  parameters:
+    - $ref: '../../components/parameters/uuid_id.yaml'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/v1/product_patch.yaml'
+  responses:
+    '200':
+      description: Product patched
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/v1/Product.yaml'
+    '400':
+      $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+      $ref: '../../components/responses/not_found_404.yaml'
+delete:
+  tags:
+    - Product
+  summary: Delete product by id
+  description: Delete product by id
+  operationId: deleteProduct
+  parameters:
+    - $ref: '../../components/parameters/uuid_id.yaml'
+  responses:
+    '204':
+      description: No content
+    '400':
+       $ref: '../../components/responses/bad_request_400.yaml'
+    '404':
+     $ref: '../../components/responses/not_found_404.yaml'
+    '409':
+      $ref: '../../components/responses/conflict_409.yaml'

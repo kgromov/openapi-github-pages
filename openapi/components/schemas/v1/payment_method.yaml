@@ -1,0 +1,27 @@
+type: object
+description: Unique identifier representing a specific payment method.
+properties:
+  id:
+    $ref: '../common/uuid_id.yaml'
+  displayName:
+    type: string
+    minLength: 2
+    maxLength: 100
+  cardNumber:
+    type: integer
+  expiryMonth:
+    type: integer
+  expiryYear:
+    type: integer
+  cvv:
+    type: integer
+  created:
+    $ref: '../common/iso_timestamp.yaml'
+  modified:
+    $ref: '../common/iso_timestamp.yaml'
+required:
+  - displayName
+  - cardNumber
+  - expiryMonth
+  - expiryYear
+  - cvv

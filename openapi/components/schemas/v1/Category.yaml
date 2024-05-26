@@ -1,0 +1,27 @@
+type: object
+properties:
+  id:
+    $ref: '../common/uuid_id.yaml'
+  name:
+    type: string
+    description: Product category name
+    example: Electronics
+  description:
+    type: string
+    description: Product category description
+    example: Electronics and Gadgets
+  # should be rather enum type
+  code:
+    type: string
+    description: The category code of the product
+    minLength: 3
+    maxLength: 25
+    example: ELECTRONICS
+  created:
+    $ref: '../common/iso_timestamp.yaml'
+  modified:
+    $ref: '../common/iso_timestamp.yaml'
+required:
+  - name
+  - description
+  - code
