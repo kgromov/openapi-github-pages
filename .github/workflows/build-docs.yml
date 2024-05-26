@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build docs
+        shell: bash
         run: ./build.sh
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4 # https://github.com/peaceiris/actions-gh-pages
