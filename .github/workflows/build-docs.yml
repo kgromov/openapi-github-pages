@@ -5,8 +5,10 @@ on:
       - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - name: Build docs
@@ -14,7 +16,8 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4 # https://github.com/peaceiris/actions-gh-pages
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+#          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
           force_orphan: true
           exclude_assets: '.github,openapi,.redocly.yaml,LICENSE,README.md,build.sh'
